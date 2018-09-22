@@ -7,13 +7,11 @@
 #     return base64.b16decode(a)
 from cryptography.fernet import Fernet
 
-
 def encrypt(input):
     key = Fernet.generate_key()
     cipher_suite = Fernet(key)
     cipher_text = cipher_suite.encrypt(bytes(input))
     return cipher_text , key
-
 
 def decrypt(crypt, key):
     cipher_suite = Fernet(key)
